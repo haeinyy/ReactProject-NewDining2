@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import menu from "assets/theme/components/menu";
 import axios from "axios";
+import { Navigation } from "react-calendar";
 
 export const menuSlice = createSlice({
     name: "menu",
@@ -67,10 +68,6 @@ export const menuSlice = createSlice({
             console.log("f: ", state.fat);
         },
         makeDiet: (state, action) => {
-            if ((state.main.length === 0) | (state.desert.length === 0)) {
-                alert("주식과 디저트를 골라주세요");
-                return;
-            }
             const subMenus = [];
             const date = action.payload.date;
             const course = action.payload.course;
@@ -82,6 +79,13 @@ export const menuSlice = createSlice({
                     subMenus.push(state.value[menus].id);
                 }
             }
+            if ((state.main.length === 0) | (state.desert.length === 0)) {
+                alert("주식과 디저트를 골라주세요");
+                return;
+            } else if (subMenus.length !== 5) {
+                alert("부식은 5개를 선택해야 합니다");
+                return;
+            }
             const diet = {
                 course: course,
                 date: date,
@@ -92,14 +96,10 @@ export const menuSlice = createSlice({
             state.diet = diet;
             setTimeout(() => {
                 const fetch = async () => {
-                    try {
-                        const tmp_res = "/diets";
-                        await axios.post(tmp_res, diet);
-                        alert("식단이 등록되었습니다");
-                    } catch (err) {
-                        console.error(err);
-                        alert("식단이 등록에 실패했습니다");
-                    }
+                    const tmp_res = "/diets";
+                    await axios.post(tmp_res, diet);
+                    alert("식단이 등록되었습니다");
+                    window.location = "/dietMonth";
                 };
                 fetch();
             }, 1000);

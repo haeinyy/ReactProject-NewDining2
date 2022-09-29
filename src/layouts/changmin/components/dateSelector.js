@@ -3,7 +3,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { makeDiet } from "../redux/menu";
 
-function DateSelector() {
+function DateSelector(props) {
+    // console.log("props", props.course.course);
+    // console.log("props", props.date.tempDate);
     const dispatch = useDispatch();
     const menu_style = {
         backgroundColor: "#D70C19",
@@ -23,13 +25,24 @@ function DateSelector() {
         color: "white",
         width: "60px",
     };
+    const viewMonth = props.date.tempDate.slice(4, 6);
+    const viewDate = props.date.tempDate.slice(6, 8);
     return (
         <div style={menu_style}>
-            <div style={font}>9/12 KOREAN</div>
+            {/* <div>{props.course.course}</div> */}
+            <div>
+                {viewMonth + "/" + viewDate + " "}
+                {props.course.course}
+            </div>
             <button
                 style={button_style}
                 onClick={() =>
-                    dispatch(makeDiet({ date: "20220929", course: "KOREAN" }))
+                    dispatch(
+                        makeDiet({
+                            date: props.date.tempDate,
+                            course: props.course.course,
+                        })
+                    )
                 }
             >
                 완료
