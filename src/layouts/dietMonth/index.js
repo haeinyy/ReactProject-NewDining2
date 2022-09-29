@@ -27,7 +27,8 @@ function DietMonth() {
   return (
     <div>
       <ShinsegaeNavbar />
-      <Calendar onChange={onChange} value={value} />
+      <Calendar onChange={onChange} value={value} 
+      formatDay={(locale, date) => moment(date).format("DD")}/>
         <br></br>
         <div className="text-gray-500 mt-4" style={styleObj2}>
            {moment(value).format("YYYY년 MM월 DD일 dddd")} 
