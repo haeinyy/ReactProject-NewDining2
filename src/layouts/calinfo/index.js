@@ -43,7 +43,7 @@ function Calinfo() {
   const location = useLocation();
 
   // 2. location.state 에서 파라미터 취득
-  const date = location.state.tempDate.tempDate;
+  const date = location.state.tempDate.date;
   const diet_course = location.state.course.course;
   console.log(date + '-' + diet_course);
 

@@ -34,7 +34,6 @@ function DietInfoCard({ color, icon, date, course, description, mainMenu, subMen
         course: { course },
       },
     });
-    alert(date + ' / ' + course);
   };
   
   return (
