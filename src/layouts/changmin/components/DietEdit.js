@@ -25,7 +25,8 @@ import MenuSelect from "./menuSelect";
 import { useSelector } from "react-redux";
 
 const card_style = {
-    width: "50vw",
+    width: "48vw",
+    margin: "1vw",
 };
 function DietEdit() {
     const menus = useSelector((state) => state.menu.value);

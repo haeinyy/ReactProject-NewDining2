@@ -52,17 +52,6 @@ function EditDiet() {
                 {/* <DietEdit /> */}
                 {/* </SearchResult> */}
                 {/* <Link to="/dashbaord">Expenses</Link> */}
-                <BlankBlock>blank</BlankBlock>
-                <div>해인님 작업한 차트 들어갈 예정</div>
-                <MDBox mb={3}>
-                    <ReportsBarChart
-                        color="info"
-                        title="website views"
-                        description="Last Campaign Performance"
-                        date="campaign sent 2 days ago"
-                        chart={reportsBarChartData}
-                    />
-                </MDBox>
             </div>
         </Provider>
     );

@@ -7,6 +7,8 @@ import Diet from "./Diet";
 import { useSelector, useDispatch } from "react-redux";
 import { calculate } from "../redux/menu";
 
+import Piechart from "layouts/changmin/components/piechart";
+
 function Index(props) {
     const dispatch = useDispatch();
     const { data, setData } = useFetch();
@@ -47,12 +49,13 @@ function Index(props) {
                 <Diet menu={data.results} />
                 <DietEdit />
             </SearchResult>
-            <div>칼로리 정보</div>
+            <Piechart tan={carbonate} dan={protein} gi={fat} />
+            {/* <div>칼로리 정보</div>
             <div>탄수화물 : {carbonate}</div>
             <div>단백질 : {protein}</div>
             <div>지방 : {fat}</div>
             <div>main: {main[0]}</div>
-            <div>desert: {desert[0]}</div>
+            <div>desert: {desert[0]}</div> */}
         </>
     );
 }
@@ -87,6 +90,7 @@ const PlaceholderStack = styled.div`
 `;
 const SearchResult = styled.div`
     display: flex;
+    background-color: white;
 `;
 
 export default Index;

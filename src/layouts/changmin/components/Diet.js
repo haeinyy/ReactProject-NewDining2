@@ -25,7 +25,8 @@ import { useDispatch } from "react-redux";
 import { add } from "../redux/menu";
 
 const card_style = {
-    width: "50vw",
+    width: "48vw",
+    margin: "1vw",
 };
 function Diet({ menu }) {
     const dispatch = useDispatch();
