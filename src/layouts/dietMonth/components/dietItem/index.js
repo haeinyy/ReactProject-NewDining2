@@ -46,7 +46,6 @@ function DietItem({
     const navigate = useNavigate();
 
     const onClickEditButton = () => {
-        // TODO : 창민님 페이지 경로로 변경해야 함 + 전달하는 날짜 형식 체크 필요
         navigate("/changmin", {
             state: {
                 tempDate: { tempDate },
