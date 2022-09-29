@@ -29,11 +29,21 @@ import { useMaterialUIController } from "context";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function DietItem({ isShow, tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
-  const [controller] = useMaterialUIController();
-  const { darkMode } = controller;
-  const navigate = useNavigate();
-
+function DietItem({
+    isShow,
+    tempDate,
+    course,
+    mainMenu,
+    sub1,
+    sub2,
+    sub3,
+    sub4,
+    sub5,
+    dessert,
+}) {
+    const [controller] = useMaterialUIController();
+    const { darkMode } = controller;
+    const navigate = useNavigate();
 
     const onClickEditButton = () => {
         // TODO : 창민님 페이지 경로로 변경해야 함 + 전달하는 날짜 형식 체크 필요
@@ -56,17 +66,112 @@ function DietItem({ isShow, tempDate, course, mainMenu, sub1, sub2, sub3, sub4, 
             p={3}
             mt={2}
         >
-          {/* {tempDate} */}
-          <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {course}
-            {isShow === "true"?
-            <MDButton variant="text" color={darkMode ? "white" : "dark"} onClick={onClickEditButton}>
-              <Icon>edit</Icon>&nbsp;edit
-            </MDButton>:
-            <div></div>
-            }
-          </MDTypography>
-
+            <MDBox width="100%" display="flex" flexDirection="column">
+                <MDBox
+                    display="flex"
+                    justifyContent="space-between"
+                    alignItems={{ xs: "flex-start", sm: "center" }}
+                    flexDirection={{ xs: "column", sm: "row" }}
+                    mb={2}
+                >
+                    {/* {tempDate} */}
+                    <MDTypography
+                        variant="button"
+                        fontWeight="medium"
+                        textTransform="capitalize"
+                    >
+                        {course}
+                        {isShow === "true" ? (
+                            <MDButton
+                                variant="text"
+                                color={darkMode ? "white" : "dark"}
+                                onClick={onClickEditButton}
+                            >
+                                <Icon>edit</Icon>&nbsp;edit
+                            </MDButton>
+                        ) : (
+                            <div></div>
+                        )}
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {mainMenu}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {sub1}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {sub2}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {sub3}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {sub4}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {sub5}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+                <MDBox mb={1} lineHeight={0}>
+                    <MDTypography variant="caption" color="text">
+                        <MDTypography
+                            variant="caption"
+                            fontWeight="medium"
+                            textTransform="capitalize"
+                        >
+                            {dessert}
+                        </MDTypography>
+                    </MDTypography>
+                </MDBox>
+            </MDBox>
         </MDBox>
     );
 }
