@@ -56,11 +56,13 @@ function DietList(props) {
         <MDBox pt={1} pb={2} px={2}>
           <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
             <DietItem
+            isShow="true"
             tempDate={tempDate}
             course="KOREAN"
             mainMenu="식단 정보가 없습니다. :("
             />
             <DietItem
+            isShow="true"
             tempDate={tempDate}
             course="WESTERN"
             mainMenu="식단 정보가 없습니다. :("
@@ -79,8 +81,9 @@ function DietList(props) {
             if (tempList.length === 1) {
               if (item.course === "WESTERN") {
                 return <MDBox>
-                  <DietItem key="7" tempDate={tempDate} course="KOREAN" mainMenu="식단 정보가 없습니다. :("/>
+                  <DietItem key="7" isShow="true" tempDate={tempDate} course="KOREAN" mainMenu="식단 정보가 없습니다. :("/>
                   <DietItem key={index}
+                  isShow="false"
                   tempDate={tempDate}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
@@ -95,6 +98,7 @@ function DietList(props) {
               } else if (item.course === "KOREAN") {
                 return <MDBox>
                   <DietItem key={index}
+                  isShow="false"
                   tempDate={tempDate}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
@@ -105,11 +109,12 @@ function DietList(props) {
                   sub5={item.subMenus[4].name}
                   dessert={item.dessert.name}
                   />
-                  <DietItem key="7" tempDate={tempDate} course="WESTERN" mainMenu="식단 정보가 없습니다. :("/>
+                  <DietItem key="7" isShow="true" tempDate={tempDate} course="WESTERN" mainMenu="식단 정보가 없습니다. :("/>
                   </MDBox>
               }
             } else if (tempList.length === 2) {
               return <DietItem key={index}
+                isShow="false"
                 tempDate={tempDate}
                 course={item.course}
                 mainMenu={item.mainMenu.name}
