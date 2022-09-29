@@ -14,53 +14,53 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import Grid from "@mui/material/Grid";
-import axios from "axios";
+import Grid from '@mui/material/Grid';
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import moment from "moment";
+import moment from 'moment';
 import MyModal from './components/MyModal';
 
-import MDBox from "components/MDBox";
+import MDBox from 'components/MDBox';
 
 // Material Dashboard 2 React example components
-import Footer from "examples/Footer";
-import MDButton from "components/MDButton";
+import Footer from 'examples/Footer';
+import MDButton from 'components/MDButton';
 
 // Data
-import Calendar from "layouts/mainmenu/components/Calendar"
-import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
+import Calendar from 'layouts/mainmenu/components/Calendar';
+import ShinsegaeNavbar from 'examples/Navbars/ShinsegaeNavbar';
 import Menu from './components/Menu';
 import { useNavigate } from 'react-router-dom';
 
 function MainMenu(props) {
   const [clickDate, setClickDate] = useState(null);
   const [value, onChange] = useState(new Date());
-  
+
   const [isOpen, setOpen] = useState(false);
 
   const handleClick = () => {
-      setOpen(true);
+    setOpen(true);
   };
 
   const handleClickSubmit = (input) => {
     console.log(input.input);
     if (input.input === '1234') {
-        navigate('/dietMonth');
+      navigate('/dietMonth');
     } else {
-        setOpen(false);
+      setOpen(false);
     }
-}
-const handleClickCancel = () => setOpen(false);
+  };
+  const handleClickCancel = () => setOpen(false);
 
   const adminButton = {
     // display: "flex",
     // justifyContent: "flex-end",
-    float: "right",
-    marginRight: "25px"
+    float: 'right',
+    marginRight: '25px',
   };
 
   const navigate = useNavigate();
-  
+
   return (
     <div>
       <ShinsegaeNavbar />
@@ -73,15 +73,27 @@ const handleClickCancel = () => setOpen(false);
             <MDBox MDBox ml={3} mr={3} mb={1.5} pt={1}>
               <Menu
                 // date={ moment(value).format("YYYYMMDD") }
-                date={ clickDate===null?moment(value).format("YYYYMMDD"):clickDate }
+                date={
+                  clickDate === null
+                    ? moment(value).format('YYYYMMDD')
+                    : clickDate
+                }
               />
             </MDBox>
           </Grid>
-          
         </Grid>
-        <MDButton style={adminButton} color="error" onClick={handleClick}>관리자</MDButton>
-        <MyModal isOpen={isOpen} onSubmit={handleClickSubmit} onCancel={handleClickCancel}/>
+        <MDButton style={adminButton} color="error" onClick={handleClick}>
+          관리자
+        </MDButton>
+        <MyModal
+          isOpen={isOpen}
+          onSubmit={handleClickSubmit}
+          onCancel={handleClickCancel}
+        />
       </MDBox>
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }

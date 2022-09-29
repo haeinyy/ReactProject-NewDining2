@@ -14,8 +14,6 @@ import Grid from '@mui/material/Grid';
 import MDBox from 'components/MDBox';
 
 // Material Dashboard 2 React example components
-import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
-import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 import ShinsegaeNavbar from 'examples/Navbars/ShinsegaeNavbar';
 import Footer from 'examples/Footer';
 
@@ -85,7 +83,7 @@ function Calinfo() {
   };
 
   return (
-    <DashboardLayout>
+    <div>
       {/* <DashboardNavbar /> */}
       <ShinsegaeNavbar />
       <MDBox pt={6} pb={3}>
@@ -115,7 +113,7 @@ function Calinfo() {
         </Grid>
       </MDBox>
       <Footer />
-    </DashboardLayout>
+    </div>
   );
 }
 
