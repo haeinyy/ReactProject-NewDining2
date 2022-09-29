@@ -56,6 +56,7 @@ const handleClickCancel = () => setOpen(false);
     // display: "flex",
     // justifyContent: "flex-end",
     float: "right",
+    marginRight: "25px"
   };
 
   const navigate = useNavigate();
@@ -81,7 +82,6 @@ const handleClickCancel = () => setOpen(false);
         <MDButton style={adminButton} color="error" onClick={handleClick}>관리자</MDButton>
         <MyModal isOpen={isOpen} onSubmit={handleClickSubmit} onCancel={handleClickCancel}/>
       </MDBox>
-      <Footer />
     </div>
   );
 }
