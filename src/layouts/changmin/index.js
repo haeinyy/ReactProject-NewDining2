@@ -25,6 +25,7 @@ import DietEdit from "./components/DietEdit";
 import { Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { useLocation } from "react-router";
 
 const top_title = {
     color: "white",
@@ -36,16 +37,15 @@ const white_background = {
     backgroundColor: "white",
 };
 
-function EditDiet({ history, location, match }) {
-    console.log(history);
-    console.log(location);
-    console.log(match);
+function EditDiet() {
+    const { state } = useLocation();
+    console.log(state);
     return (
         <Provider store={store}>
             <div style={white_background}>
                 <ShinsegaeNavbar />
                 <div style={top_title}>식단표 만들기</div>
-                <DateSelector />
+                <DateSelector course={state.course} date={state.tempDate} />
                 <SearchBar />
                 {/* <SearchResult> */}
                 {/* <Diet /> */}

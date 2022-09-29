@@ -34,34 +34,27 @@ function DietItem({ isShow, tempDate, course, mainMenu, sub1, sub2, sub3, sub4, 
   const { darkMode } = controller;
   const navigate = useNavigate();
 
-  const onClickEditButton = () => {
-    // TODO : 창민님 페이지 경로로 변경해야 함 + 전달하는 날짜 형식 체크 필요
-    navigate('/hee', {
-      state: {
-        tempDate: {tempDate},
-        course: {course}
-      }
-    });
-  };
 
-  return (
-    <MDBox
-      component="li"
-      display="flex"
-      justifyContent="space-between"
-      alignItems="flex-start"
-      bgColor={darkMode ? "transparent" : "grey-100"}
-      borderRadius="lg"
-      p={3}
-      mt={2}
-    >
-      <MDBox width="100%" display="flex" flexDirection="column">
+    const onClickEditButton = () => {
+        // TODO : 창민님 페이지 경로로 변경해야 함 + 전달하는 날짜 형식 체크 필요
+        navigate("/changmin", {
+            state: {
+                tempDate: { tempDate },
+                course: { course },
+            },
+        });
+    };
+
+    return (
         <MDBox
-          display="flex"
-          justifyContent="space-between"
-          alignItems={{ xs: "flex-start", sm: "center" }}
-          flexDirection={{ xs: "column", sm: "row" }}
-          mb={2}
+            component="li"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="flex-start"
+            bgColor={darkMode ? "transparent" : "grey-100"}
+            borderRadius="lg"
+            p={3}
+            mt={2}
         >
           {/* {tempDate} */}
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
@@ -73,59 +66,9 @@ function DietItem({ isShow, tempDate, course, mainMenu, sub1, sub2, sub3, sub4, 
             <div></div>
             }
           </MDTypography>
+
         </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {mainMenu}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {sub1}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {sub2}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {sub3}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {sub4}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {sub5}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {dessert}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-      </MDBox>
-    </MDBox>
-  );
+    );
 }
 
 // Typechecking props for the Bill
