@@ -44,6 +44,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import Changmin from "layouts/changmin";
 
 import Hee from "layouts/hee";
 import DietMonth from "layouts/dietMonth";
@@ -140,7 +141,15 @@ const routes = [
         icon: <Icon fontSize="small">dashboard</Icon>,
         route: "/admin",
         component: <Admin />,
-    }
+    },
+    {
+        type: "collapse",
+        name: "chagnmin",
+        key: "changmin",
+        icon: <Icon fontSize="small">dashboard</Icon>,
+        route: "/changmin",
+        component: <Changmin />,
+    },
 ];
 
 export default routes;
