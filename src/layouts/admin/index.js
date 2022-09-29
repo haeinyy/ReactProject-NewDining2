@@ -20,7 +20,7 @@ function Admin() {
 
     const handleClickSubmit = (input) => {
         console.log(input.input);
-        if (input.input === '1234') {
+        if (input.input === "1234") {
             navigate('/dietMonth');
         } else {
             setOpen(false);
@@ -34,7 +34,7 @@ function Admin() {
             <h1>{message}</h1>
             <div>
             {     
-                {message} === "admin1234"
+                {message} === "1234"
                 ? <p>참이면 보여줄 HTML</p>
                 : null
             }
