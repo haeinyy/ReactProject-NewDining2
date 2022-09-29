@@ -1,11 +1,12 @@
 import { color } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "@mui/material/Icon";
 // import logo from "C:/shinEdu/project2022/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png";
 // import logo from "/Users/chang/develop/react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png";
 import logo from "../../../../src/assets/images/icons/flags/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function index(props) {
+function Index(props) {
     const box = {
         backgroundColor: "#D70C19",
         height: "50px",
@@ -19,12 +20,30 @@ function index(props) {
     };
     // const logo = require("react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png");
     // const logo = require("/Users/chang/develop/react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png");
+    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [loc, setLoc] = useState("");
+
+    useEffect(() => {
+        console.log(location.pathname);
+        setLoc(location.pathname);
+    },[location]);
+
+    const goHome = () => {
+        if (loc === "/changmin") {
+            navigate(-1);
+        } else {
+            navigate("/mainmenu");
+        }
+    };
+
     return (
         <div style={box}>
-            <div>신세계 아이앤씨</div>
+            <div onClick={goHome}>신세계 아이앤씨</div>
             <img src={logo} alt="logo" style={logo_style}></img>
         </div>
     );
 }
 
-export default index;
+export default Index;
