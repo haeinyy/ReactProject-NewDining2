@@ -87,7 +87,7 @@ function DietItem({
                                 color={darkMode ? "white" : "dark"}
                                 onClick={onClickEditButton}
                             >
-                                <Icon>edit</Icon>&nbsp;edit
+                                <Icon>edit</Icon>&nbsp;write
                             </MDButton>
                         ) : (
                             <div></div>
