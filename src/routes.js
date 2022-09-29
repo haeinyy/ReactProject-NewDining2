@@ -49,6 +49,7 @@ import Changmin from "layouts/changmin";
 import Hee from "layouts/hee";
 import DietMonth from "layouts/dietMonth";
 import Admin from "layouts/admin";
+import MainMenu from "layouts/mainmenu";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -150,6 +151,14 @@ const routes = [
         route: "/changmin",
         component: <Changmin />,
     },
+    {
+        type: "collapse",
+        name: "Main Menu",
+        key: "main-menu",
+        icon: <Icon fontSize="small">Menu</Icon>,
+        route: "/mainmenu",
+        component: <MainMenu />,
+    }
 ];
 
 export default routes;
