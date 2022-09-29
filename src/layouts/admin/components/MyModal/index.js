@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
+import "layouts/admin/components/MyModal/adminModal.css"
 
 const MyModal = ({isOpen, onSubmit, onCancel}) => {
   const handleClickSubmit = () => {
@@ -9,7 +10,7 @@ const MyModal = ({isOpen, onSubmit, onCancel}) => {
     onCancel();
   };
   const styleObj = {
-    height: "150px"
+    textAlign: "center"
   }
   const styleObj2 = {
     textAlign: "right"
@@ -18,9 +19,9 @@ const MyModal = ({isOpen, onSubmit, onCancel}) => {
   let [input, setinput] = useState();
 
   return (
-    <ReactModal isOpen={isOpen} input={input} style={styleObj}>
+    <ReactModal isOpen={isOpen} input={input} className="Modal">
       <div>관리자 암호</div>
-      <input onChange={ (e)=>{ setinput(e.target.value) } } />
+      <div style={styleObj}><input onChange={ (e)=>{ setinput(e.target.value) } } /></div>
       <div style={styleObj2}>
       <button onClick={handleClickSubmit}>확인</button>
       <button onClick={handleClickCancel}>닫기</button>

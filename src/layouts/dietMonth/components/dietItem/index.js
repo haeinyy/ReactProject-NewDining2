@@ -27,8 +27,9 @@ import MDButton from "components/MDButton";
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function DietItem({ tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
+function DietItem({ isShow, tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
   const navigate = useNavigate();
@@ -65,9 +66,12 @@ function DietItem({ tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, de
           {/* {tempDate} */}
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
             {course}
+            {isShow === "true"?
             <MDButton variant="text" color={darkMode ? "white" : "dark"} onClick={onClickEditButton}>
               <Icon>edit</Icon>&nbsp;edit
-            </MDButton>
+            </MDButton>:
+            <div></div>
+            }
           </MDTypography>
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
