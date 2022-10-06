@@ -3,10 +3,13 @@ version: "3.7"
 services:
     ts_food_market:
         container_name: shinsegae
-        # image: bururaru/inc_project_front:1.0.1
+        platform: linux/amd64
         build:
-            context: .
+            context: ./
             dockerfile: Dockerfile
+        volumes:
+            - ".t:/app"
+            - "/app/node_modules"
         ports:
             - "3000:3000"
         environment:
